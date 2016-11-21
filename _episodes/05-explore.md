@@ -17,7 +17,7 @@ Open Field Calculator. In order to perform any numeric analysis on our occurrenc
 
 Open Basic Statistics for Numeric Field. Choose a field of interest, such as coordinate uncertainty in meters on which to perform the analysis.
 
-![Figure 1.40](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.40.png)
+![Figure 1.40](QGIS-nhcdata-lesson/fig/1.40.png)
 
 ### Heatmap
 **Are there any clusters or hotspots of observations?**
@@ -28,12 +28,12 @@ Open Basic Statistics for Numeric Field. Choose a field of interest, such as coo
 
 Heatmaps are used to identify clusters or hotspots. In the Heatmap Plugin dialog, enter 50,000 meters as the Radius. Radius is the area around each point that will be used to calculate the ‘heat’ a pixel received.
 
-![Figure 1.41](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.41.png)
+![Figure 1.41](QGIS-nhcdata-lesson/fig/1.41.png)
 
 Change the symbology to a pseudocolor ramp and classify to make the heatmap more legible.
 
-![Figure 1.42](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.42.png)
+![Figure 1.42](QGIS-nhcdata-lesson/fig/1.42.png)
 
 You can experiment with different search radii or pixel sizes by enabling advanced features.
 
-![Figure 1.43](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.43.png)
+![Figure 1.43](QGIS-nhcdata-lesson/fig/1.43.png)
