@@ -1,66 +1,61 @@
 ---
-title: "Introduction: Visualizing datasets"
-teaching: 60
-exercises: 60
+title: "Exploration: Time animation"
+teaching: 40
+exercises: 40
 questions:
-- "What is the difference between vector and raster data?"
-- "What kinds of auxiliary data can complement spatial analysis?"
+- "How can observations be checked for errors given dates or transcriptions?"
 objectives:
-- "Set up QGIS and load data."
-- "Preview and explore toolkits."
-- "Save maps and data."
-Load data:
+- "Animate by collecting event date or collector to show biases in collection."
 ---
-- "Load the occurrence_raw.csv in QGIS as a delimited text layer. The data are comma separated. Specify your Longitude field as your X and your Latitude field as your Y. Ensure that the ‘discard empty fields’ box, remains unchecked, as selecting it will collapse column formatting."
-- "<i>Note: The X and Y coordinates are easily confused. Latitude specifies the north-south position of a point and hence it is a Y coordinate. Similarly, Longitude specifies the east-west position of a point and it is a X coordinate. If prompted to select a CRS (coordinate reference system), select WGS84 (default), which will allow for combination with other layers using the same reference.</i>"
-Set projection:
----
-- "Check the CRS if you see an error stating that the Coordinate Reference System is undefined. Once the layer is imported, right click on it and go to `Properties > General`. Check the CRS here." 
-- "Set the QGIS > Preferences for CRS (coordinate reference system) to Enable on the Fly reprojection by default. Your data may be projected to WGS:84 by default. This is a very standard datum (for WGS84 pseudo mercator for web). In order to analyze your points against other data layers, you may need to change the CRS (vector) or reproject/warp (raster) those layers into WGS84, etc. Always check the CRS of the layers that you import to ensure that they are aligned."
-Style points:
-- "Change the appearance of points by right-clicking on the layer in the legend and selecting Properties. Within the Style pane, you can change the Color and Size of the points according. It is also through this panel that you also can symbolize the points based on an attribute or scale their radius proportionally."
-Preview attributes:
----
-- "Open the attribute table by right-clicking on the layer and selecting Open Attribute Table. There are 25,429 features! Selecting a row(s) in the attribute table will highlight the respective point(s)."
-- "Change the selection highlight color under Project > Project Properties in the Canvas & Legend Panel under selection color. This will highlight the selected features on your map. You can interactively select data by cursor clicking on the map or dragging a rectangle around points."
-- "This will highlight the records in the corresponding attribute table. In the table, you can toggle between viewing all records and viewing the selected records. To create a subset of data points, you can manually select records and see the corresponding records in the attribute table." 
-- "To clear your selection, hit Deselect Features from All Layers."
-Load supplementary data
-- "Load the supplementary [California Counties](http://www.arcgis.com/home/item.html?id=2f227372477d4cddadc0cd0b002ec657) (shapefile) layer that you downloaded from Box. You do not have to unzip this shapefile. Shapefiles are actually bundles of 6-8 composite files, but QGIS can read this in as one package when imported. Also check the CRS information for the layer by right clicking to Properties > General. It is in the same CRS as the points (WGS84)."
-- "To import vector layers (i.e. shapefiles):"
-- To import raster layers (i.e. tiffs):
-- To import text delimited layers (i.e. spreadsheets):
-Style layers:
----
-- "Change the appearance of the CA_counties in Properties. You can change the symbology of the layer to render it transparent or hollow, which will allow you to layer it with other content. Right-click on the CA_counties layer and go to Properties > Style. Rather than a Simple fill, the style can be Outline: Simple line, which will render the layer as hollow. Hit Apply to preview the change in the canvas and hit Ok once you are satisfied with the Style."
-- "Drag the CA_counties layer beneath the points to change the order. You can also check or uncheck the box next to the layer name to toggle the layer on or off."
-Explore data:
----
-- "Interrogate the data by using the Identify tool. Depending on the layer selected (points or counties), you can click on the feature in the canvas of interest and see its attributes. Click away from features on the canvas to deselect."
-- "Load a basemap of your choice from Web >  OpenLayers plugin, preferably from OpenStreetMap. You can see the points referenced against tiled basemaps (physical, streets, etc)"
-- "If you don’t see this option, go to `Plugins > Manage Plugins` and ensure that the OpenLayers box is checked on."
-- "Explore the data by place name with the Gazetteer plugin. Search for places (i.e. “botanic gardens California”, etc.) and note the distribution of points around each. Zoom using the magnifying glass and pan with the hand icon."
-Save project:
----
-- "Save your map project. Now that you have loaded your georeferenced data points, the California Counties, and a basemap of your choice, be sure to save a project file (.qgs) so you can reopen your records again later. Be sure to continue storing all of your content, including the project file and layers that you load and produce, in the same working directory folder."
-- "<i>Note: The project file (.qgs) does not save any of the data. Rather, it stores the relative file paths for the layers that comprise the project and preserves the cosmetic appearance of the layers, such as the symbology and order of the layers in the project. This means you can close out your project and later return to it by launching the project file; your layers and symbology are preserved and remain as you saved them, provided you do not change the locations of the project layers.</i>"
-Add additional layers:
----
-- "Add additional layers of interest, which you downloaded (and are also linked to their sources below): [EPA Ecoregions Level III](https://www.epa.gov/eco-research/level-iii-and-iv-ecoregions-continental-united-states) (shapefile); [National Park Boundaries](https://irma.nps.gov/DataStore/Reference/Profile/2225713) (shapefile); [Natural Earth Shaded Reliefs](http://www.naturalearthdata.com/downloads) (raster: available in large, medium, and small scale). We can use these in analysis."
-- "<i>Note: You can also search for other thematic layers that might be of particular interest to your project using ArcGIS Online. Additional ideas for supplementary data include imagery: vegetation, land cover, natural preserve boundaries, or roads. These layers can provide context for the research questions that you would like to answer. </i>"
-- "<i>Note: Depending on the size of the study area you’re interested in, you may want to examine the resolution of the elevation data cells to assess their utility. Examining county-level data for instance requires finer resolution grid cells, compared with data of national extent. </i>"
-Save layers:
----
-- "Save a single feature as a separate layer, such as the county of Santa Barbara. Make a selection, either in the attribute table or by making a selection on the map. Right-click the CA_Counties layer in the legend and select Save Vector Layer As. We can also build a query expression from the County attribute table to select California."
-- "Create a subset of observations within the county by using the Intersection tool. You will need to open the Processing toolbox from the Processing dropdown menu. Select the occurrences_raw as the input layer and Santa Barbara County as the intersect layer. You can write the intersection of the layers to a new file by specifying a filepath and name. Once the tool runs, hit Close."
-Share map:
----
-- "To share your map with others, you have several options for export. You can zip your project folder to send your QGIS project, or export the project to print as a PDF from the Project > Save as Image or in Composer, which allows for more advanced cartographic styling. You can also save a frame from your canvas under Project > Save as Image as any image type you wish."
-Join media:
----
-- "Join the multimedia.csv table to your occurrence table using idigbio:coreid as a primary key. This is the unique identifier of the dataset records, analogous to the idigbio:UUID. Import the table as you imported occurrences_raw and create a layer from delimited text and indicate “No Geometry”, loading the table just as an attribute table. Many records point to access URIs that contain media, such as photographs associated with the point. Remember to keep saving your project periodically!"
-- "Reproject the Ecoregions layer from NAD83 to WGS84 using the Vector general tools > Reproject layer. This will make it interoperable with the occurrences_raw layer and other WGS84 layers."
-- "Join by location using the Vector General Tools > Join by Location to get the US Ecoregions attribute table (join vector layer) joined with the occurrences within Santa Barbara (target vector layer). This will append the attribute table of the Ecoregions layer to the occurrences points."
-Shortcut:
----
-- "The entire zipped QGIS project to this point is available for download [here](https://ucsb.box.com/s/5qqiiqw237jr5mb7ip8hm5yspl4b8hcn) (launch Tutorial.qgs)."
+**Are there biases in the collection by collector or errors with dates or transcriptions? Which points were collected by the same collector or have low data quality scores? (For all records before 1940, what institutions? - by institution code), bias based on institutional protocols - build a query**
+
+* Goal: visually assess data quality or outliers
+* Tool: TimeManager (requires installation of Plugin; go to Manage and Install Plugins and search) - warning: this dataset is very large, so running TimeManager can be somewhat slow
+* Output: same layer with time enabled symbology for attribute of interest
+
+Toggle on TimeManager Plugin from the menu; this will open the interactive panel. 
+
+![Figure 1.34](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.34.png)
+
+Choose a time field (i.e. dwc:dcterms_mo, dwc:eventDate, dwc:year) from the “occurrences_raw.csv” to use as a timestamp. You can choose a start time of interest and see which observations correspond to this start date. This is another means of revealing patterns in your symbolized data.
+
+### Centroids
+**Are the observations georeferenced to a county or state level?**
+
+* Goal: find points that are not descriptively georeferenced
+* Tool: Polygon centroids; (Dissolve)
+* Output: a new shapefile with points that describe the geometric center of each polygon
+
+Open the Polygon centroids tool from the processing toolbox. Use the CA Counties layer as your input and save out the centroids to a new shapefile in your same folder directory.
+
+![Figure 1.35](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.35.png)
+
+### Buffer
+**What is the acceptable distance from the centroid as a proxy measure of granularity?**
+
+* Goal: find points that are within an acceptable threshold distance from the centroid of the counties
+* Tool: Buffer(s)
+* Output: a new shapefile of polygons with areas of a given search radius around each centroid
+
+Open the Fixed Distance Buffer tool from the processing toolbox. You are prompted to select a Buffer distance. To find out the project properties and units, navigate to Project > Project Properties > General. You will see that CRS transformation is enabled (your layers are projected on the fly) and your canvas map units are in Meters. Your projection is Pseudo Mercator, so your map units are in Decimal Degrees.
+
+![Figure 1.36](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.36.png)
+
+As a first pass, generate a 0.08 degree buffer (approximately 5.5 miles) around each centroid. Since this is a proxy measure for granularity, you can choose any buffer radius that makes sense.
+
+![Figure 1.37](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.37.png)
+
+### Intersect
+**Do any observation points Intersect the buffer? If so, is the precision of these observations suspect?**
+
+* Goal: find points that intersect the threshold distance
+* Tool: Intersect
+* Output: a selection of points (highlighted in the attribute table) that intersect the search radius
+
+Find the Select by Location tool in the Processing Toolbox. Specify the occurrences_raw.csv points as the layer to select from and the Buffer as the intersection layer.
+
+![Figure 1.38](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.38.png)
+
+We can now review the 1939/21518 subset of occurrences that are geocoded to within a 5 mile radius of the county centroid. Filter in the attribute table to sort “Show Selected Features”. At the top of the table, the number of selected features is reported. Review the Longitude and Latitude of the coordinates and note the precision. Is it spurious? What is the date of the record?
+
+![Figure 1.39](https://github.com/data-lessons/QGIS-nhcdata-lesson/blob/gh-pages/fig/1.39.png)
