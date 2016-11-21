@@ -1,7 +1,7 @@
 ---
 title: "Introduction: Preview and explore toolkits"
-teaching: 75
-exercises: 75
+teaching: 35
+exercises: 40
 questions:
 - "What kinds of auxiliary data can complement spatial analysis?"
 objectives:

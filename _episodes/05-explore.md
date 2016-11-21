@@ -1,7 +1,7 @@
 ---
 title: "Exploration: Uncertainty"
-teaching: 30
-exercises: 30
+teaching: 15
+exercises: 15
 questions:
 - "How can observations be symbolized to show systematic error and uncertainty by collector, or data quality score?"
 objectives:

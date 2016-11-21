@@ -1,7 +1,7 @@
 ---
 title: "Exploration: Next steps"
-teaching: 30
-exercises: 30
+teaching: 15
+exercises: 15
 questions:
 - "How can observations be edited once errors are detected?"
 objectives:

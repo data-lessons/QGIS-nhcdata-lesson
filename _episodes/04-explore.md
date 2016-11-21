@@ -1,7 +1,7 @@
 ---
 title: "Exploration: Time animation"
-teaching: 40
-exercises: 40
+teaching: 20
+exercises: 20
 questions:
 - "How can observations be checked for errors given dates or transcriptions?"
 objectives:

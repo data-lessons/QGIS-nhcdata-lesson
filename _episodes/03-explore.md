@@ -1,7 +1,7 @@
 ---
 title: "Exploration: Aggregating by regions"
-teaching: 40
-exercises: 40
+teaching: 20
+exercises: 20
 questions:
 - "How can observations be aggregated by a given spatial unit of analysis?"
 objectives:
