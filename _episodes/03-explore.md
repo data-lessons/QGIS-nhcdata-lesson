@@ -18,12 +18,12 @@ Now that we have created a subset of the occurrences within Santa Barbara County
 ### Symbolize by collection, collector, class
 In the Properties of SB_Eco_join, we can change the symbology to reflect the distribution of occurrences by collection. In Style, change from Single Symbol to Categorized. The column to visualize is dwc_collec or dcterms_1 for collection and dwc_iden_6 for collector or dwc_class for Class. **Do you notice any clusters by collection? By collector? By class? By any other attribute?**
 
-![Figure 1.21](QGIS-nhcdata-lesson/fig/1.21.png)
+![Figure 1.21](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.21.png)
 
 ### Popups for localities 
 In the Properties for SB_Eco_join, go to Display and select dwc_locali as the Field for Map Tips. This will enable you to preview the locality description of occurrences. You can choose another attribute to preview in this way as well. Also, click the Map Tips button to enable the Map Tips. **Check the locality descriptions against the Gazetteer, the OSM Basemap, the Ecoregions; does it make sense?**
 
-![Figure 1.22](QGIS-nhcdata-lesson/fig/1.22.png)
+![Figure 1.22](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.22.png)
 
 ### Aggregation
 **How many observations occurred in each county? Do any counties have a disproportionate amount?**
@@ -34,15 +34,15 @@ In the Properties for SB_Eco_join, go to Display and select dwc_locali as the Fi
 
 To open the toolbox panel, go to Processing > Toolbox. Search for the count points in a polygon tool. This tool summarizes the number of points that intersect each polygon in the feature of interest and writes a new shapefile of counties that contains the sum of points as an attribute in the attribute table. Below, that field is “Numpoints.” 
 
-![Figure 1.23](QGIS-nhcdata-lesson/fig/1.23.png)
+![Figure 1.23](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.23.png)
 
 Open attribute table and navigate to the “Numpoints” field. Sort by value by clicking on the header name to find the counties with the greatest and fewest number of observations. 
 
-![Figure 1.24](QGIS-nhcdata-lesson/fig/1.24.png)
+![Figure 1.24](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.24.png)
 
 Move layer beneath the points to visualize which points correspond to which county. Changing the order of the layers in the left panel orders the way they are drawn on the canvas. You toggle them on and off by checking or unchecking the layers as well. 
 
-![Figure 1.25](QGIS-nhcdata-lesson/fig/1.25.png)
+![Figure 1.25](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.25.png)
 
 ### Symbology
 **Which counties have the greatest number of observations? Which points have the greatest coordinate uncertainty in meters?**
@@ -53,21 +53,21 @@ Move layer beneath the points to visualize which points correspond to which coun
 
 Now that the counties contain information for aggregated point counts, we can change the layer symbology to reflect the information. Right click on “occurrence_raw.csv” to select “Properties”.
 
-![Figure 1.26](QGIS-nhcdata-lesson/fig/1.26.png)
+![Figure 1.26](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.26.png)
 
 In the style tab, change from Single Symbol to Graduated. This allows you to pick a number of classes to style your data. Experiment with different numbers of breaks (7+/- 2 for legibility), color ramps (continuous), and distribution modes (natural breaks - jenks). This allows you to easily visualize which counties have the greatest and fewest observation points. We can use this in combination with the Identify tool to explore the number of observations in each county.
 
-![Figure 1.27](QGIS-nhcdata-lesson/fig/1.27.png)
+![Figure 1.27](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.27.png)
 
-![Figure 1.28](QGIS-nhcdata-lesson/fig/1.28.png)
+![Figure 1.28](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.28.png)
 
 Next, try changing the symbology of the occurrences_raw.csv points to find which have the highest coordinate uncertainty to create a proportional symbol map that scales the radius of the point based on the uncertainty. The symbology options may vary between QGIS versions. This will highlight points with low positional precision. 
 
-![Figure 1.29](QGIS-nhcdata-lesson/fig/1.29.png)
+![Figure 1.29](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.29.png)
 
 Select features of interest in the attribute table and highlight them on the map. You can for instance filter your data by removing records below a given threshold of precision. You can also use the Identify tool to click on specific points and see their attributes displayed in the left panel. 
 
-![Figure 1.30](QGIS-nhcdata-lesson/fig/1.30.png)
+![Figure 1.30](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.30.png)
 
 ### Intersection, Subsetting
 **Which observations occurred in Santa Barbara County? Around particular state or federal parks?**
@@ -78,12 +78,12 @@ Select features of interest in the attribute table and highlight them on the map
 
 As we found in the previous step of aggregation, there are 662 observations in Santa Barbara County.  Create a subset of data of just the points that occur in Santa Barbara County on which we can perform additional analysis. Find the Extract by attribute tool in the Processing toolbox. You will extract Santa Barbara County from the set of counties in CA counties. Save the new output selection as a layer named “Santa Barbara County” that you can use to clip and subset occurrence_raw points.
 
-![Figure 1.31](QGIS-nhcdata-lesson/fig/1.31.png)
+![Figure 1.31](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.31.png)
 
 Next, open the Intersection tool. Select the “occurrences_raw” as the input layer and “Santa Barbara  County” as the intersect layer. This will write the intersection of the layers to a new file.
 
-![Figure 1.32](QGIS-nhcdata-lesson/fig/1.32.png)
+![Figure 1.32](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.32.png)
 
 We also select Santa Barbara County by building a query from the attribute table.
 
-![Figure 1.33](QGIS-nhcdata-lesson/fig/1.33.png)
+![Figure 1.33](https://raw.githubusercontent.com/data-lessons/QGIS-nhcdata-lesson/gh-pages/fig/1.33.png)
